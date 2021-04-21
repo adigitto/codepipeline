@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+  rDatalakeEMRPolicyForDynamoDB:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      Description: "dynamodb policy to grant permission on dynamodb resources"
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - dynamodb:Scan
+          - dynamodb:Query
+          Resource: '*'
+        - Effect: Allow
+          Action:
+          - dynamodb:CreateTable
+          - dynamodb:BatchGetItem
+          - dynamodb:BatchWriteItem
+          - dynamodb:PutItem
+          - dynamodb:DescribeTable
+          - dynamodb:DeleteItem
+          - dynamodb:GetItem
+          - dynamodb:Scan
+          - dynamodb:Query
+          - dynamodb:UpdateItem
+          - dynamodb:DeleteTable
+          - dynamodb:UpdateTable
+          Resource: '*'
+        - Effect: Allow
+          Action: dynamodb:ListTables
+          Resource: '*'
